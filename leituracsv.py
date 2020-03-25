@@ -4,6 +4,8 @@ import shutil
 import time
 
 
+#arquivo ready to be coomited
+
 arquivoLeitura = open(r"C:\Users\thiag\Desktop\bacen\csv_import\csv_import.csv",'r')
 linhasEntrada = csv.reader(arquivoLeitura)
 itens = []
