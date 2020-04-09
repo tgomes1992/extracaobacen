@@ -15,11 +15,11 @@ for i in linhasEntrada:
 
 
 class Arquivo_entrada():
-   
+
     def __init__(self,filename):
         self.file_i = filename
         self.arquivoentrada = open(os.path.join("C:/Users/thiag/Desktop/bacen/Arquivosbacen",self.file_i),'r')
-        self.linhas = csv.reader(self.arquivoentrada, delimiter = ",")
+        self.linhas = csv.reader(self.arquivoentrada, delimiter = ";")
     def mostrarlinhas(self):
          for linha in self.linhas:
              print(linha)
@@ -31,16 +31,16 @@ class Arquivo_saida(Arquivo_entrada):
     def __init__(self,filename):
         Arquivo_entrada.__init__(self,filename)
         nfile = "Arquivo Atualizado_" + filename[-12:-4]+ ".csv"
-        self.file_o = open(os.path.join("C:/Users/thiag/Desktop/bacen/Scripts/CSVS  -  BANCO DE DADOS",nfile),"w")
+        self.file_o = open(os.path.join("C:/Users/thiag/Desktop/bacen/Scripts/CSVS  -  BANCO DE DADOS",nfile),"w",newline="")
         self.cabecalho = ["Data", "Codigo" , "Tipo", "Moeda", "Cotacao em Real: Compra","Cotacao em Real: Venda","Paridades:Compra","Paridades:Compra"]
     def novoarquivo(self):
         writer = csv.writer(self.file_o,delimiter=",")
-        writer.writerow(self.cabecalho)
+        #writer.writerow(self.cabecalho)
         for linha in self.linhas:
             writer.writerow(linha)
         self.file_o.close()
         Arquivo_entrada.closeFile(self)
-        
+
         #print("Novo Arquivo Gerado")
 
 
@@ -57,27 +57,5 @@ def main():
     for files in itens:
         shutil.move(os.path.join(source,files) , destination)
     return("Arquivos Movidos para - " +   destination )
-
-
-
-        
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-        
 
 

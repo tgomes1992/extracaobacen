@@ -1,9 +1,9 @@
 
-import os 
+import os
 import shutil
-import extrairtaxas
 import csvimportacao
 import leituracsv
+import databasemanagement
 
 
 #file inside a git repo
@@ -22,14 +22,12 @@ def mover_arquivo():
     return("Arquivos prontos para processamento")
 
 
-
-
-
 def rodar_programa():
-    extrairtaxas.main()
-    mover_arquivo()    
+    mover_arquivo()
     csvimportacao.main()
+    databasemanagement.main()
     leituracsv.main()
+
 
 
 if __name__=='__main__':
